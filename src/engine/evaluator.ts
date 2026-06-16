@@ -1,5 +1,10 @@
 import BigNumber from 'bignumber.js'
 import { parse } from './parser'
+
+BigNumber.config({
+  EXPONENTIAL_AT: [-20, 20],
+  RANGE: 500,
+})
 import type {
   ASTNode,
   NumberNode,
@@ -426,13 +431,15 @@ function fromRadians(x: BigNumber, mode: AngleMode): BigNumber {
 }
 
 function simplify(v: ComplexNumber): Value {
-  const EPSILON = new BigNumber('1e-30')
+  const EPSILON = new BigNumber('1e-12')
   let re = v.re
   let im = v.im
-  if (im.abs().isLessThan(EPSILON)) {
+  const maxAbs = BigNumber.max(re.abs(), im.abs())
+  const relEps = BigNumber.max(maxAbs.times(EPSILON), EPSILON)
+  if (im.abs().isLessThan(relEps)) {
     im = new BigNumber(0)
   }
-  if (re.abs().isLessThan(EPSILON) && !im.isZero()) {
+  if (re.abs().isLessThan(relEps) && !im.isZero()) {
     re = new BigNumber(0)
   }
   if (im.isZero()) return re
@@ -623,19 +630,25 @@ export function valueToString(v: Value): string {
 }
 
 function formatReal(n: BigNumber): string {
-  let s = n.toString()
-  if (s.includes('e+')) {
-    s = n.toPrecision(15)
-    if (s.includes('e+')) {
-      return n.toExponential(10)
-    }
+  if (n.isNaN()) return 'NaN'
+  if (!n.isFinite()) return n.isNegative() ? '-∞' : '∞'
+
+  const abs = n.abs()
+
+  if (abs.isZero()) return '0'
+
+  if (abs.isGreaterThanOrEqualTo('1e15') || abs.isLessThan('1e-10')) {
+    return n.toExponential(10).replace(/\.?0+e/, 'e')
   }
-  if (s.length > 30) {
-    return n.toExponential(10)
-  }
+
+  const dp = 12
+  const rounded = n.decimalPlaces(dp, BigNumber.ROUND_HALF_UP)
+  let s = rounded.toFixed(dp)
+
   if (s.includes('.')) {
     s = s.replace(/0+$/, '').replace(/\.$/, '')
   }
+
   if (s === '-0') s = '0'
   return s
 }

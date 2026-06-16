@@ -123,7 +123,7 @@ const FUNCTION_NAMES = [
   'fact',
 ]
 
-const CONSTANT_NAMES = ['pi', 'e', 'phi', 'g', 'c', 'h', 'π', 'φ', 'PI', 'E', 'PHI', 'G', 'C', 'H']
+const CONSTANT_NAMES = ['pi', 'e', 'phi', 'g', 'c', 'h', 'π', 'φ', 'PI', 'E', 'PHI', 'G', 'H']
 
 export function tokenize(input: string): Token[] {
   const tokens: Token[] = []

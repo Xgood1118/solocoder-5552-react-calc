@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Calculator, Grid3x3, ArrowRightLeft } from 'lucide-react';
 import { useSettingsStore } from '@/store/settingsStore';
 import { useEffect } from 'react';
+import i18n from '@/i18n';
 
 export default function AppLayout() {
   const { t } = useTranslation();
@@ -12,6 +13,11 @@ export default function AppLayout() {
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const navItems = [
     { path: '/', icon: Calculator, label: t('app.basic') },

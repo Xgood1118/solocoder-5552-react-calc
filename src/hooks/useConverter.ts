@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useEffect } from 'react'
 import BigNumber from 'bignumber.js'
 import { getUnitsByCategory, convertUnit } from '@/engine/units'
 import { convertBase, isValidInBase } from '@/engine/base'
@@ -25,9 +25,28 @@ export function useConverter(categoryKey: UnitCategoryKey | 'base') {
   }, [categoryKey])
 
   const [leftValue, setLeftValue] = useState<string>('1')
-  const [leftUnit, setLeftUnit] = useState<string>(units[0]?.symbol ?? '')
+  const [leftUnit, setLeftUnit] = useState<string>('')
   const [rightValue, setRightValue] = useState<string>('')
-  const [rightUnit, setRightUnit] = useState<string>(units[1]?.symbol ?? units[0]?.symbol ?? '')
+  const [rightUnit, setRightUnit] = useState<string>('')
+
+  useEffect(() => {
+    if (categoryKey === 'base') return
+    const unitList = getUnitsByCategory(categoryKey)
+    if (unitList.length === 0) return
+    const newLeftUnit = unitList[0].symbol
+    const newRightUnit = unitList[1]?.symbol ?? unitList[0].symbol
+    setLeftUnit(newLeftUnit)
+    setRightUnit(newRightUnit)
+    try {
+      const val = new BigNumber('1')
+      const result = convertUnit(val, newLeftUnit, newRightUnit, categoryKey as UnitCategoryKey)
+      setLeftValue('1')
+      setRightValue(formatOutput(result))
+    } catch {
+      setLeftValue('1')
+      setRightValue('')
+    }
+  }, [categoryKey])
 
   const [baseValues, setBaseValues] = useState<Record<BaseKey, string>>({
     2: '1010',
