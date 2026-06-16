@@ -1,0 +1,86 @@
+{
+  "app": {
+    "title": "Scientific Calculator",
+    "basic": "Basic",
+    "complex": "Complex",
+    "matrix": "Matrix",
+    "converter": "Converter"
+  },
+  "calc": {
+    "angle": "Angle",
+    "radian": "Radian",
+    "deg": "Deg",
+    "rad": "Rad",
+    "ans": "Last Result",
+    "clear": "Clear",
+    "backspace": "Backspace",
+    "left": "Left",
+    "right": "Right",
+    "equal": "Equal",
+    "result": "Result",
+    "history": "History",
+    "clearHistory": "Clear History",
+    "presets": "Presets",
+    "variables": "Variables",
+    "noHistory": "No history yet",
+    "noVariables": "No variables yet",
+    "addVariable": "Add Variable",
+    "deleteVariable": "Delete Variable"
+  },
+  "matrix": {
+    "rows": "Rows",
+    "cols": "Cols",
+    "add": "Add",
+    "subtract": "Subtract",
+    "multiply": "Multiply",
+    "transpose": "Transpose",
+    "inverse": "Inverse",
+    "determinant": "Determinant",
+    "eigenvalues": "Eigenvalues",
+    "luDecomposition": "LU Decomposition",
+    "qrDecomposition": "QR Decomposition",
+    "matrixA": "Matrix A",
+    "matrixB": "Matrix B",
+    "result": "Result",
+    "edit": "Edit"
+  },
+  "converter": {
+    "length": "Length",
+    "mass": "Mass",
+    "time": "Time",
+    "temperature": "Temperature",
+    "area": "Area",
+    "volume": "Volume",
+    "speed": "Speed",
+    "data": "Data Storage",
+    "angle": "Angle",
+    "pressure": "Pressure",
+    "baseConversion": "Base Conversion",
+    "binary": "Binary",
+    "octal": "Octal",
+    "decimal": "Decimal",
+    "hexadecimal": "Hexadecimal",
+    "from": "From",
+    "to": "To"
+  },
+  "preset": {
+    "pythagorean": "Pythagorean theorem a²+b²=c²",
+    "quadratic": "Quadratic formula",
+    "sphereVolume": "Sphere volume formula",
+    "eulerIdentity": "Euler's identity e^(iπ)+1=0"
+  },
+  "error": {
+    "undefined": "Undefined",
+    "invalidExpression": "Invalid expression",
+    "domainError": "Domain error",
+    "overflow": "Overflow",
+    "notInvertible": "Matrix not invertible",
+    "dimensionMismatch": "Dimension mismatch"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "retro": "Retro Green",
+    "bluewhite": "Blue White"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "app": {
+    "title": "科学计算器",
+    "basic": "基础",
+    "complex": "复数",
+    "matrix": "矩阵",
+    "converter": "换算"
+  },
+  "calc": {
+    "angle": "角度",
+    "radian": "弧度",
+    "deg": "度",
+    "rad": "弧度",
+    "ans": "上次结果",
+    "clear": "清空",
+    "backspace": "退格",
+    "left": "左移",
+    "right": "右移",
+    "equal": "等于",
+    "result": "计算结果",
+    "history": "历史记录",
+    "clearHistory": "清空历史",
+    "presets": "公式收藏",
+    "variables": "变量",
+    "noHistory": "暂无历史记录",
+    "noVariables": "暂无变量",
+    "addVariable": "添加变量",
+    "deleteVariable": "删除变量"
+  },
+  "matrix": {
+    "rows": "行",
+    "cols": "列",
+    "add": "加",
+    "subtract": "减",
+    "multiply": "乘",
+    "transpose": "转置",
+    "inverse": "求逆",
+    "determinant": "行列式",
+    "eigenvalues": "特征值",
+    "luDecomposition": "LU分解",
+    "qrDecomposition": "QR分解",
+    "matrixA": "矩阵 A",
+    "matrixB": "矩阵 B",
+    "result": "结果",
+    "edit": "编辑"
+  },
+  "converter": {
+    "length": "长度",
+    "mass": "质量",
+    "time": "时间",
+    "temperature": "温度",
+    "area": "面积",
+    "volume": "体积",
+    "speed": "速度",
+    "data": "数据存储",
+    "angle": "角度",
+    "pressure": "压强",
+    "baseConversion": "进制互转",
+    "binary": "二进制",
+    "octal": "八进制",
+    "decimal": "十进制",
+    "hexadecimal": "十六进制",
+    "from": "从",
+    "to": "到"
+  },
+  "preset": {
+    "pythagorean": "勾股定理 a²+b²=c²",
+    "quadratic": "二次求根公式",
+    "sphereVolume": "球体积公式",
+    "eulerIdentity": "欧拉恒等式 e^(iπ)+1=0"
+  },
+  "error": {
+    "undefined": "未定义",
+    "invalidExpression": "输入有误",
+    "domainError": "定义域错误",
+    "overflow": "溢出",
+    "notInvertible": "矩阵不可逆",
+    "dimensionMismatch": "矩阵维度不匹配"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "retro": "复古绿",
+    "bluewhite": "蓝白"
+  }
+}
